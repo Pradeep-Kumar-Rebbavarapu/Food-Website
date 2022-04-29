@@ -1,0 +1,138 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<section class="text-gray-600 body-font">
+			<div class="container py-12 mx-auto">
+				<div class="flex flex-col text-center w-full mb-20">
+					<h1
+						class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900"
+					>
+						Order Now For A Stomach Full Delight
+					</h1>
+					<p class="lg:w-2/3 mx-auto leading-relaxed text-base">
+						Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
+						gentrify, subway tile poke farm-to-table. Franzen you probably
+						haven't heard of them man bun deep jianbing selfies heirloom.
+					</p>
+				</div>
+				<div class="">
+					{% for i in items1%}
+					<section class="text-gray-600 body-font overflow-hidden">
+						<div class="container px-5 py-12 mx-auto">
+							<div class="-my-8 divide-y-2 divide-gray-100">
+								<div
+									class="py-8 grid lg:grid-cols-[500px_auto] flex-wrap md:flex-nowrap"
+								>
+									<div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+										<div class="">
+											<div class="flex relative">
+												<img
+													alt="gallery"
+													class="absolute inset-0 w-full h-full object-cover object-center rounded-md"
+													src="../../media/{{i.image}}"
+												/>
+												<div
+													class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:!opacity-100"
+												>
+													<h2
+														class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1"
+													>
+														{{i.category}}
+													</h2>
+													
+													<h1
+														class="title-font text-lg font-medium text-gray-900 mb-3"
+													>
+														Get it At {{i.price}} Rs
+													</h1>
+													<p class="leading-relaxed">Only {{i.stock}} Left</p>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="md:flex-grow">
+
+										<h2
+											class="text-2xl font-medium text-gray-900 title-font mb-2"
+										>
+											{{i.title|slice:"0:75"}}...
+										</h2>
+										<p class="leading-relaxed">{{i.desc|slice:"0:210"}}...</p>
+										<input type="text" class="hidden" value={{i.item_id}} name="item_id">
+										<a	href="/EachItem/{{i.item_id}}/"
+											type="submit"
+											class="inline-flex items-center mt-4 border-2 p-1 rounded-md bg-blue-600 hover:bg-blue-500 text-white"
+											
+											>Learn More
+											<svg
+												class="w-4 h-4 ml-2"
+												viewBox="0 0 24 24"
+												stroke="currentColor"
+												stroke-width="2"
+												fill="none"
+												stroke-linecap="round"
+												stroke-linejoin="round"
+											>
+												<path d="M5 12h14"></path>
+												<path d="M12 5l7 7-7 7"></path>
+											</svg>
+										</a>
+										
+									</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					{%endfor%}
+					<div class="grid lg:grid-cols-3">
+					{%for i in items2%}
+					<div class="p-4">
+						<div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+						  <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="../../media/{{i.image}}" alt="blog">
+						  <div class="p-6">
+							<h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">{{i.category}}</h2>
+							<h1 class="title-font text-lg font-medium text-gray-900 mb-3">{{i.title|slice:"0:50"}}...</h1>
+							<p class="leading-relaxed mb-3">{{i.desc|slice:"0:180"}}...</p>
+							<div class="flex items-center flex-wrap ">
+							  <a type="button" href="/EachItem/{{i.item_id}}/" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
+								<svg class="w-4 h-4 " viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+								  <path d="M5 12h14"></path>
+								  <path d="M12 5l7 7-7 7"></path>
+								</svg>
+							  </a>
+							  <div class="mt-3">
+							  <span class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+								{{i.price}} Rs
+							  </span>
+							  <span class="text-gray-400 inline-flex items-center leading-none text-sm">
+								{{i.stock}} Left
+							  </span>
+							</div>
+							</div>
+						  </div>
+						</div>
+					  </div>
+					{%endfor%}
+				</div>
+				</div>
+			</div>
+		</section>
+	</body>
+	{%block script%}
+	<script>
+
+	</script>
+	{%endblock%}
+</html>
+
+
+

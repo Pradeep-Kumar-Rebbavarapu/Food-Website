@@ -1,0 +1,97 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=], initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div>
+			<nav
+				id="shopnavbar"
+				class="bg-[url('{%static 'images/ordermd.jpg'%}')] lg:bg-[url('{%static 'images/order1.jpg'%}')] bg-cover bg-center bg-no-repeat hidden"
+			>
+				<div class="lg:grid grid-cols-4 py-5">
+					<div class="mx-2 bg-white my-5">
+						<ul class="my-3">
+							<li><a class="dropdown-item" href="#">Action</a></li>
+							<li><a class="dropdown-item" href="#">Another action</a></li>
+							<li><hr class="dropdown-divider" /></li>
+							<li><a class="dropdown-item" href="#">Something else here</a></li>
+						</ul>
+					</div>
+					<div class="mx-2 bg-white my-5">
+						<ul class="my-3">
+							<li><a class="dropdown-item" href="#">Action</a></li>
+							<li><a class="dropdown-item" href="#">Another action</a></li>
+							<li><hr class="dropdown-divider" /></li>
+							<li><a class="dropdown-item" href="#">Something else here</a></li>
+						</ul>
+					</div>
+					<div class="mx-2 bg-white my-5">
+						<ul class="my-3">
+							<li><a class="dropdown-item" href="#">Action</a></li>
+							<li><a class="dropdown-item" href="#">Another action</a></li>
+							<li><hr class="dropdown-divider" /></li>
+							<li><a class="dropdown-item" href="#">Something else here</a></li>
+						</ul>
+					</div>
+					<div class="mx-2 bg-white my-5">
+						<ul class="my-3">
+							<li><a class="dropdown-item" href="#">Action</a></li>
+							<li><a class="dropdown-item" href="#">Another action</a></li>
+							<li><hr class="dropdown-divider" /></li>
+							<li><a class="dropdown-item" href="#">Something else here</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<div
+				id="drop"
+				class="position-relative bg-[url('{%static 'images/ordermd.jpg'%}')] lg:bg-[url('{%static 'images/order1.jpg'%}')] bg-center"
+				type="button"
+				onclick="handletoggle()"
+			>
+				<div class="flex justify-center py-2">
+					<div
+						class="mx-3 lg:bg-gray-900 bg-gray-50 bg-opacity-50 rounded-md p-2"
+					>
+						<div class="lg:bg-gray-900 bg-gray-50 bg-opacity-50 rounded-md p-1">
+							<i class="lg:invert fa-solid fa-magnifying-glass w-5 h-5"></i>
+						</div>
+					</div>
+					<div
+						class="mx-3 lg:bg-gray-900 bg-gray-50 bg-opacity-50 rounded-md p-2"
+					>
+						<div class="lg:bg-gray-900 bg-gray-50 bg-opacity-50 rounded-md p-1">
+							<i class="lg:invert fa-solid fa-bowl-food w-5 h-5"></i>
+						</div>
+					</div>
+					<div
+						class="mx-3 lg:bg-gray-900 bg-gray-50 bg-opacity-50 rounded-md p-2"
+					>
+						<div class="lg:bg-gray-900 bg-gray-50 bg-opacity-50 rounded-md p-1">
+							<i class="lg:invert fa-solid fa-burger w-5 h-5"></i>
+						</div>
+					</div>
+					<div
+						class="mx-3 lg:bg-gray-900 bg-gray-50 bg-opacity-50 rounded-md p-2"
+					>
+						<div class="lg:bg-gray-900 bg-gray-50 bg-opacity-50 rounded-md p-1">
+							<i class="lg:invert fa-solid fa-martini-glass-citrus w-5 h-5"></i>
+						</div>
+					</div>
+					<div
+						class="mx-3 lg:bg-gray-900 bg-gray-50 bg-opacity-50 rounded-md p-2"
+					>
+						<div class="lg:bg-gray-900 bg-gray-50 bg-opacity-50 rounded-md p-1">
+							<i class="lg:invert fa-solid fa-stroopwafel w-5 h-5"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

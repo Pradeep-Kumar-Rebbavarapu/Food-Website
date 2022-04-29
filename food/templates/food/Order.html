@@ -1,0 +1,31 @@
+{% extends 'base.html' %} 
+{% load static%} 
+
+{% block title %} FastFood - Shop
+{%endblock%}
+<style>
+    #drop{
+        filter: blur(20px);
+        -webkit-filter: blur(20px);
+    }
+</style>
+{%block style%}
+
+{%endblock%} 
+    
+{%block body %}
+    {% include 'food/ShopNavbar.html'%}
+    {% include 'food/Items.html'%}
+{%endblock%}
+
+{%block script%}
+<script>
+	let handletoggle = () => {
+		if (document.getElementById("shopnavbar").style.display === "grid") {
+			document.getElementById("shopnavbar").style.display = "none";
+		} else {
+			document.getElementById("shopnavbar").style.display = "grid";
+		}
+	};
+</script>
+{%endblock%}

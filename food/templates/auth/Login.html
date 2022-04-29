@@ -1,0 +1,58 @@
+{% extends 'base.html'%} {%block title%}FastFood - Login{%endblock%} 
+{% block style %} {%load static%}
+<style>
+	#grid{
+		content:"";
+		background-image: url({%static "images/login1.jpg"%});
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		height:100%;
+		width:100%;
+		z-index:-1;
+	}
+</style>
+{%endblock%} 
+
+
+{%block body%}
+<div class="" id="grid">
+	<div class="container py-3 ">
+		<div class="border-2  mx-auto  justify-center flex w-1/2 h-[500xp] rounded-md bg-gray-100 bg-opacity-70">
+			<form class="" action="/Login/" method="post">
+				<h1 class="text-5xl font-bold text-center">Login</h1>
+				{% csrf_token%} {% for field in fm %}
+				<div class="mt-4">{{field.label_tag}}</div>
+				<div class="">
+					{{field}} {{field.errors}}
+					<div id="helptext">{{field.help_text}}</div>
+					{{field.non_field_errors}}
+				</div>
+				{%endfor%}
+				<div class="flex justify-center">
+					<button
+						class="border-2 p-1 rounded-md bg-orange-500 text-white my-2"
+						type="submit"
+					>
+						Login
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	
+</div>
+
+{% block alertmessage %}
+
+{% endblock %} 
+{% comment %} {% if messages %}
+{% for message in messages%}
+<p {% if message.tags %} class="{{message.tags}}" {%endif%}>{{message}}</p>
+{%endfor %}
+ {%endif%}  {% endcomment %}
+
+ 
+ 
+ {%endblock%}

@@ -1,0 +1,36 @@
+{% extends 'base.html'%} {%block title%}FastFood - Signup{%endblock%} {% block style %}
+{%load static%}
+<style>
+	
+</style>
+{%endblock%} {%block body%}
+<div class="grid lg:grid-cols-2 " id="grid">
+	<div class="my-auto container">
+		<img class="" src={%static 'images/8.jpg'%} alt="">
+	</div>
+	<div class="container">
+	<div class="border-2 container mx-auto my-3 py-3  justify-center flex">
+		
+		<form class="" action="/Signup/" method="post">
+			<h1 class="text-5xl font-bold text-center">Signup</h1>
+			{% csrf_token%} {% for field in fm %}
+			<div class="mt-4 ">{{field.label_tag}}</div>
+			<div class="">{{field}} {{field.errors}} <div id="helptext">{{field.help_text}}</div> <div class="bg-transparent text-red-500">{{field.non_field_errors}}</div></div>
+			{%endfor%}
+            <div class="flex justify-center">
+			<button
+				class="border-2 p-1 rounded-md bg-orange-500 hover:bg-orange-600 focus:ring-[7px] focus:ring-orange-600  focus:ring-opacity-50 transition-all fade-in-out text-white my-2 "
+				type="submit"
+			>
+				Signup
+			</button>
+        </div>
+		</form>
+	</div>
+</div>
+</div>
+
+
+
+
+{%endblock%}

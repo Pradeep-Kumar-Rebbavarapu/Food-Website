@@ -1,0 +1,38 @@
+{% extends 'base.html'%} {% block title%}FastFood - YourCart{%endblock%} 
+{% block style%}{%endblock%} {% block body%}
+<section class="text-gray-600 body-font">
+	<div class="container px-5 py-24 mx-auto">
+		<div class="grid lg:grid-cols-4 flex-wrap -m-4">
+            {% for i in displaycart%}
+            
+			<div class=" p-4 w-full">
+				<a href="/EachItem/{{i.fooditem.item_id}}" class="block relative h-48 rounded overflow-hidden">
+					<img
+						alt="ecommerce"
+						class="object-cover object-center w-full h-full block"
+						src="../../media/{{i.fooditem.image}}"
+					/>
+				</a>
+                
+				<div class="mt-4">
+					<h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">
+						{{i.fooditem.category}}
+					</h3>
+					<h2 class="text-gray-900 title-font text-lg font-medium">
+						{{i.fooditem.title}}
+					</h2>
+                    <div class="grid grid-cols-1">
+                        <p class="mt-1">Total Price : {{i.TotalPrice}} Rs</p>
+                        <p class="mt-1">Quantity : {{i.quantity}}</p>
+                        <p class="mt-1">delete</p>
+                    </div>
+				</div>
+            
+			</div>
+       
+            {% endfor %}
+			
+		</div>
+	</div>
+</section>
+ {%endblock%} {% block script%}{%endblock%}

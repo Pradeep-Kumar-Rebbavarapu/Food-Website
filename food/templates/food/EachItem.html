@@ -1,0 +1,130 @@
+{% extends 'base.html' %} 
+{%block style%}{%endblock%} {%block body%} {%for i in eachitem%}
+
+<section class="text-gray-600 body-font overflow-hidden">
+	{%block title%}FastFood - Item{%endblock%} 
+	<div class="container-fluid py-24 mx-auto">
+		<div class="lg:w-4/5 mx-auto flex flex-wrap">
+			<div class="w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+                <div class="grid lg:grid-cols-2">
+                    <div>
+                        <h2 class="text-sm title-font text-gray-500 tracking-widest">
+                            {{i.category|upper}}
+                        </h2>
+                        <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">
+                            {{i.title|title}}
+                        </h1>
+                    </div>
+                    <img alt="ecommerce" class=" w-full lg:h-auto h-full lg:mx-2 object-cover object-center rounded" src="../../media/{{i.image}}">
+                </div>
+				
+				<div class="flex mb-4">
+					<a
+						id="desc"
+						class="flex-grow py-2 text-lg px-1 text-indigo-500 border-b-2 border-indigo-500"
+						onclick="handlechangeslide1()"
+						>Description</a
+					>
+					<a
+						id="review"
+						class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1"
+						onclick="handlechangeslide2()"
+						>Reviews</a
+					>
+					<a
+						id="details"
+						class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1"
+						onclick="handlechangeslide3()"
+						>Details</a
+					>
+				</div>
+				<div class="grid lg:grid-cols-2">
+					<div class="mx-2">
+						<p class="leading-relaxed mb-4" id="descpara">
+							{{i.desc|slice:"0:800"}}
+						</p>
+						<p class="leading-relaxed mb-4 hidden" id="reviewpara">{{i.desc|slice:"800:1600"}}</p>
+						<p class="leading-relaxed mb-4 hidden" id="detailspara">{{i.desc|slice:"1600:2400"}}</p>
+					</div>
+					<div>
+						<div class="flex border-t border-gray-200 py-2">
+							<span class="text-gray-500">Color</span>
+							<span class="ml-auto text-gray-900">dropdown</span>
+						</div>
+						<div class="flex border-t border-gray-200 py-2">
+							<span class="text-gray-500">Size</span>
+							<span class="ml-auto text-gray-900">size dropdown</span>
+						</div>
+						<div class="flex border-t border-b mb-6 border-gray-200 py-2">
+							<span class="text-gray-500">Items Left</span>
+							<span class="ml-auto text-gray-900">{{i.stock}}</span>
+						</div>
+						<span class="title-font font-medium text-2xl text-gray-900"
+								>{{i.price}} Rs</span
+							>
+						<div class="flex my-3">
+							
+                            <form action="/YourCart/" method="post">{% csrf_token %}
+                            <input class="hidden" type="text" value={{i.item_id}} name="id">
+                            <input class="hidden" type="text" value={{user.id}} name="user">
+							<button
+								type="submit" class="flex  text-white bg-orange-500 border-0 py-2 px-6 focus:outline-none hover:bg-orange-600 rounded"
+							>
+								Add To Kart
+							</button>
+                            </form>
+							<button
+								class="flex  text-white mx-2 bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
+							>
+								Order Now
+							</button>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</section>
+{%endfor%} {%endblock%} {%block script%}
+<script>
+	handlechangeslide1 = () => {
+		document.getElementById("desc").className =
+			"flex-grow border-b-2 py-2 text-lg px-1 text-indigo-500 border-b-2 border-indigo-500";
+		document.getElementById("review").className =
+			"flex-grow border-b-2 py-2 text-lg px-1 ";
+		document.getElementById("details").className =
+			"flex-grow border-b-2 py-2 text-lg px-1 ";
+		document.getElementById("descpara").style.display = "block";
+		document.getElementById("reviewpara").style.display = "none";
+
+		document.getElementById("detailspara").style.display = "none";
+	};
+	handlechangeslide2 = () => {
+		document.getElementById("review").className =
+			"flex-grow border-b-2 py-2 text-lg px-1 text-indigo-500 border-b-2 border-indigo-500";
+		document.getElementById("desc").className =
+			"flex-grow border-b-2 py-2 text-lg px-1";
+		document.getElementById("details").className =
+			"flex-grow border-b-2 py-2 text-lg px-1 ";
+		document.getElementById("descpara").style.display = "none";
+		document.getElementById("reviewpara").style.display = "block";
+
+		document.getElementById("detailspara").style.display = "none";
+	};
+	handlechangeslide3 = () => {
+		document.getElementById("details").className =
+			"flex-grow border-b-2 py-2 text-lg px-1 text-indigo-500 border-b-2 border-indigo-500";
+		document.getElementById("desc").className =
+			"flex-grow border-b-2 py-2 text-lg px-1";
+		document.getElementById("review").className =
+			"flex-grow border-b-2 py-2 text-lg px-1";
+
+		document.getElementById("descpara").style.display = "none";
+		document.getElementById("reviewpara").style.display = "none";
+
+		document.getElementById("detailspara").style.display = "block";
+	};
+</script>
+{%endblock%}
